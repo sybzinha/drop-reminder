@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drop Reminder</title>
+  <link rel="stylesheet" href="./scr/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <h1>Simulador de Consumo diário de Água</h1>
+  <i class="fas fa-tint" style="font-size: 50px; color: #00f2fe;"></i>
+
+  <!-- Configuração inicial -->
+  <div id="setup">
+    <form id="waterForm">
+      <label for="weight">Seu peso (kg):</label>
+      <input type="number" id="weight" placeholder="Ex: 70" required>
+      <button type="submit">Calcular Meta</button>
+    </form>
+  </div>
+
+  <!-- Menu Interativo -->
+  <div id="menu" style="display: none;">
+    <form id="selectionForm">
+      <label for="containerSelect">Selecione o tipo de recipiente:</label>
+      <select id="containerSelect" required>
+        <option value="" disabled selected>Escolha uma opção</option>
+        <option value="200">Copo de 200ml</option>
+        <option value="500">Garrafinha de 500ml</option>
+        <option value="1000">Garrafa de 1L</option>
+      </select>
+      <button type="submit">Confirmar</button>
+    </form>
+  </div>
+
+  <!-- Simulador -->
+  <div id="waterSimulator" style="display: none;">
+    <h2>Sua meta diária: <span id="dailyGoal"></span></h2>
+    <div id="glassContainer">
+      <div id="glassOuter">
+        <div id="glass">
+          <div id="waterLevel"></div>
+        </div>
+      </div>
+    </div>
+    <button id="addWater">Marcar como tomado</button>
+  </div>
+
+  <!-- Modal de Meta Atingida -->
+  <div id="successModal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <span id="closeModal" class="close">&times;</span>
+      <div class="modal-body">
+        <img src="https://media1.tenor.com/m/ARx4WcvFjXMAAAAd/duck-water.gif" alt="Success Gif" class="modal-gif">
+        <p id="modalMessage">Parabéns, você atingiu sua meta diária!</p>
+      </div>
+    </div>
+  </div>
+
+  <audio id="gulpSound" src="./scr/pouring-water-into-glass-sound-free-to-use-sound-royalty-free-sound-effect_8NVOvrTx.mp3" preload="auto"></audio>
+
+  <script src="/drop_reminder/scripts.js"></script>
+</body>
+</html>
